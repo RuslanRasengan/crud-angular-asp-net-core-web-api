@@ -1,0 +1,26 @@
+<div class="login-wrapper">
+    <form class="form" [formGroup]="registrationForm">
+        <mat-form-field appearance="fill">
+            <mat-label>Login</mat-label>
+            <input matInput formControlName="login" autocomplete="off">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" autocomplete="off">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input formControlName="password" name="password" autocomplete="off" matInput
+                [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <div class="action-buttons">
+            <button type="button" mat-raised-button color="primary" (click)="register(registrationForm.value)">Register</button>
+            <button type="button" mat-raised-button (click)="toLogin()">To Login</button>
+        </div>
+    </form>
+</div>
